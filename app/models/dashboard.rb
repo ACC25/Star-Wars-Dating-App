@@ -1,3 +1,3 @@
-class Dashboard < ApplicationRecord
-  
+class Dashboard < ActiveRecord::Base
+
 end

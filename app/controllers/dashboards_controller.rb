@@ -1,3 +1,7 @@
-class Dashboards < ApplicationController
+class DashboardsController < ApplicationController
+
+  def index
+  end
+
 
 end
