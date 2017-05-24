@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :show, :create, :index] do
 
-    resources :dashboards, only: [:index, :show]
+    resources :dashboards, only: [:index, :show, :new]
   end
 
   get '/', to: 'sessions#show'
