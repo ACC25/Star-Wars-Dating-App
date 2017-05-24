@@ -9,4 +9,10 @@ RSpec.describe "user can create an account" do
       assert page.has_content?("Welcome, Carl")
   end
 
+  it "login button can be found" do
+    user = User.create!(username: "Carl", password: "password")
+    visit root_path
+    expect(current_path).to eq '/'
+  end
+
 end

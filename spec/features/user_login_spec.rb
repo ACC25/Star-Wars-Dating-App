@@ -9,4 +9,5 @@ RSpec.describe "user can login" do
     click_button "Login"
     assert page.has_content?("Welcome, Carl")
   end
+
 end
