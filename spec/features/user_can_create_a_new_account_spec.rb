@@ -7,7 +7,6 @@ RSpec.describe "user can create an account" do
       fill_in "Password", with: "password"
       click_button "Create Account"
       assert page.has_content?("Welcome, Carl")
-      save_and_open_page
   end
 
 end
