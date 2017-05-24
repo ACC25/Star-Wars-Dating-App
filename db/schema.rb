@@ -10,14 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524144312) do
+ActiveRecord::Schema.define(version: 20170524203342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dashboards", force: :cascade do |t|
-    t.text "race"
-    t.text "environment"
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "peoples_id"
+    t.index ["peoples_id"], name: "index_favourites_on_peoples_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "peoples", force: :cascade do |t|
+    t.string "name"
+    t.integer "height"
+    t.string "skin_colour"
+    t.string "eye_colour"
+    t.string "gender"
+    t.string "species_api"
+    t.bigint "planet_id"
+    t.bigint "race_id"
+    t.index ["planet_id"], name: "index_peoples_on_planet_id"
+    t.index ["race_id"], name: "index_peoples_on_race_id"
+  end
+
+  create_table "planets", force: :cascade do |t|
+    t.string "name"
+    t.string "climate"
+    t.string "terrain"
+    t.string "api_url"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.string "classification"
+    t.string "designation"
+    t.string "api_url"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,4 +56,8 @@ ActiveRecord::Schema.define(version: 20170524144312) do
     t.text "password_digest"
   end
 
+  add_foreign_key "favourites", "peoples", column: "peoples_id"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "peoples", "planets"
+  add_foreign_key "peoples", "races"
 end
