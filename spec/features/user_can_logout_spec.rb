@@ -7,9 +7,9 @@ RSpec.describe "user can log out" do
     fill_in "Username", with: user.username
     fill_in "Password", with: "password"
     click_button "Login"
-    assert page.has_content?("Welcome, Carl")
+    assert page.has_content?("Carl")
 
     click_link "Logout"
-    refute page.has_content?("Welcome, Carl")
+    refute page.has_content?("Carl")
   end
 end
