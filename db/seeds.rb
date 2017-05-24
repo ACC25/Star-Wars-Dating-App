@@ -20,7 +20,7 @@
       Race.create!(name: race["name"],
                       classification: race["classification"],
                       designation: race["designation"],
-                      api_url: race["url"]
+                      api_url: race["url"][0]
                     )
       puts "Creating Race"
       end
@@ -47,13 +47,13 @@
       Planet.create!(name: planet["name"],
                       climate: planet["climate"],
                       terrain: planet["terrain"],
-                      api_url: planet["url"]
+                      api_url: planet["url"][0]
                     )
-      puts "Creating Planets"
+      puts "Creating Planet"
       end
     end
 
-  def collect_people
+  def collect_peoples
     links = ['http://swapi.co/api/people/?page=1',
               'http://swapi.co/api/people/?page=2',
               'http://swapi.co/api/people/?page=3',
@@ -72,18 +72,38 @@
 
   def create_people_objects(data)
       data.each do |person|
+        race = Race.find_by(api_url: person["species"][0])
+        planet = Planet.find_by(api_url: person["homeworld"][0])
         Peoples.create!(name: person["name"],
                         height: (person["height"].to_i),
                         skin_colour: person["skin_color"],
                         eye_colour: person["eye_color"],
                         gender: person["gender"],
-                        race: Race.find_by(api_url: person["species"]),
-                        planet_id: Planet.find_by(api_url: person["planet"]),
-                        species_api: person["species"],
-                        api_url: person["url"]
-                      )
-        puts "Creating Peoples"
+                        race_id: race_verification(race),
+                        planet_id: planet_verification(planet),
+                        species_api: person["species"])
+        puts "Creating People"
       end
+    end
+
+    def race_verification(race)
+      if race == nil
+        race = Race.find_by(name: "Human")
+        output = race
+      else
+        output = race
+      end
+      output.id
+    end
+
+    def planet_verification(planet)
+      if planet == nil
+        planet = Planet.find_by(name: "Alderaan")
+        output = planet
+      else
+        output = planet
+      end
+      output.id
     end
 # end
 
