@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'sessions#show'
 
-  resources :dashboards, only: [:index, :show]
 
-  resources :users, only: [:new, :show, :create, :index]
+  resources :users, only: [:new, :show, :create, :index] do
+
+    resources :dashboards, only: [:index, :show]
+  end
 
   get '/', to: 'sessions#show'
   get '/login', to: 'sessions#new'
