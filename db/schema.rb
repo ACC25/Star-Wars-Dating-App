@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524234129) do
+ActiveRecord::Schema.define(version: 20170525004146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20170524234129) do
     t.index ["race_id"], name: "index_peoples_on_race_id"
   end
 
+  create_table "peoples_vehicles", id: false, force: :cascade do |t|
+    t.bigint "people_id", null: false
+    t.bigint "vehicle_id", null: false
+    t.bigint "peoples_id"
+    t.bigint "vehicles_id"
+    t.index ["peoples_id"], name: "index_peoples_vehicles_on_peoples_id"
+    t.index ["vehicles_id"], name: "index_peoples_vehicles_on_vehicles_id"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "climate"
@@ -54,7 +63,8 @@ ActiveRecord::Schema.define(version: 20170524234129) do
     t.text "name"
     t.text "model"
     t.text "starship_class"
-    t.string "pilot"
+    t.bigint "peoples_id"
+    t.index ["peoples_id"], name: "index_starships_on_peoples_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,11 +80,16 @@ ActiveRecord::Schema.define(version: 20170524234129) do
     t.integer "cost_in_credit"
     t.integer "max_atmosphering_speed"
     t.string "api_url"
-    t.string "pilot"
+    t.bigint "peoples_id"
+    t.index ["peoples_id"], name: "index_vehicles_on_peoples_id"
   end
 
   add_foreign_key "favourites", "peoples", column: "peoples_id"
   add_foreign_key "favourites", "users"
   add_foreign_key "peoples", "planets"
   add_foreign_key "peoples", "races"
+  add_foreign_key "peoples_vehicles", "peoples", column: "peoples_id"
+  add_foreign_key "peoples_vehicles", "vehicles", column: "vehicles_id"
+  add_foreign_key "starships", "peoples", column: "peoples_id"
+  add_foreign_key "vehicles", "peoples", column: "peoples_id"
 end

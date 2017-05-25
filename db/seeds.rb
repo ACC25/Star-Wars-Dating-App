@@ -22,8 +22,7 @@ Vehicle.destroy_all
       pilot = Peoples.find_by(api_url: starship["pilots"][0])
       Starship.create!(name: starship["name"],
                         model: starship["model"],
-                        starship_class: starship["starship_class"],
-                        pilot: pilot_verification(pilot)
+                        starship_class: starship["starship_class"]
                       )
     vehicle_name = starship["name"]
     puts "Creating Starship: #{vehicle_name}"
@@ -51,7 +50,6 @@ Vehicle.destroy_all
                       model: vehicle["model"],
                       cost_in_credit: vehicle["cost_in_credit"],
                       max_atmosphering_speed: vehicle["max_atmosphering_speed"],
-                      pilot: pilot_verification(pilot),
                       api_url: vehicle["url"])
     vehicle_name = vehicle["name"]
     puts "Creating Vehicle: #{vehicle_name}"

@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
 
   def new
     @user = current_user
+    @favourites = Favourite.new
   end
 
 
