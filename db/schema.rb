@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524203342) do
+ActiveRecord::Schema.define(version: 20170524234129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170524203342) do
     t.string "species_api"
     t.bigint "planet_id"
     t.bigint "race_id"
+    t.string "api_url"
     t.index ["planet_id"], name: "index_peoples_on_planet_id"
     t.index ["race_id"], name: "index_peoples_on_race_id"
   end
@@ -49,11 +50,27 @@ ActiveRecord::Schema.define(version: 20170524203342) do
     t.string "api_url"
   end
 
+  create_table "starships", force: :cascade do |t|
+    t.text "name"
+    t.text "model"
+    t.text "starship_class"
+    t.string "pilot"
+  end
+
   create_table "users", force: :cascade do |t|
     t.text "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "password_digest"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.integer "cost_in_credit"
+    t.integer "max_atmosphering_speed"
+    t.string "api_url"
+    t.string "pilot"
   end
 
   add_foreign_key "favourites", "peoples", column: "peoples_id"
