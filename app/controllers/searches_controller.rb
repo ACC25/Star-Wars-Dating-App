@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 
   def new
-    binding.pry
+    @user = current_user
   end
 
   def index
@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
 
   def create
     binding.pry
+    @user = current_user
     @species = Race.find(params["search"]["name"].to_i).name
   end
 end

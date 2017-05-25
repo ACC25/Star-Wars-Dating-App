@@ -1,0 +1,39 @@
+<h1>Star Wars - The Dating App</h1>
+<!--
+  <%= semantic_form_for(:search, url: search_path) do |f| %>
+    <%= f.input :gender, :as => :radio, :collection => @genders %>
+    <%= f.input :race, :as => :select, :collection => @species %>
+    <%= f.input :climate, :as => :select, :collection => @climates %>
+    <%= f.actions :submit %>
+  <% end %>
+
+   -->
+
+<div id="questions">
+    <form name="formName" action="/search" method="POST">
+        <h2>What Gender would you like?</h2>
+        <div class="left_options">
+             <p><input type="checkbox" name="Males" value="Male" id="gender_male"><label for="gender_male">Male</label></p>
+            <p><input type="checkbox" name="Females" value="Female" id="gender_female"><label for="gender_female">Female</label></p>
+        </div>
+        <div class="right_options">
+          <p><input type="checkbox" name="hermaphrodites" value="hermaprodite" id="gender_hermaphrodite"><label for="gender_hermaphrodite">hermaphrodite</label></p>
+           <p><input type="checkbox" name="Nones" value="None" id="gender_none"><label for="gender_none">None</label></p>
+           <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+
+          <form name="formName" action="/search" method="POST">
+              <h2>What Race Would you like?</h2>
+              <div class="left_options">
+                   <p><input type="checkbox" name="Humans" value="Male" id="gender_human"><label for="gender_human">Human</label></p>
+                  <p><input type="checkbox" name="Females" value="Female" id="gender_female"><label for="gender_female">Female</label></p>
+              </div>
+              <div class="right_options">
+                <p><input type="checkbox" name="hermaphrodites" value="hermaprodite" id="gender_hermaphrodite"><label for="gender_hermaphrodite">hermaphrodite</label></p>
+                 <p><input type="checkbox" name="Nones" value="None" id="gender_none"><label for="gender_none">None</label></p>
+                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+
+           <p><input type="submit" value ="Submit"></p>
+       </div>
+</form>
+</div>

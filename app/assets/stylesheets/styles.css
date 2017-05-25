@@ -1,14 +1,11 @@
-.something { text-align: center;
-
-}
-
-li  {
-}
 
 abbr[title="required"] {
   display: none;
 }
 
 
-#questions {width: 100%; margin: 0 auto;} /*this margin is to center the div automatically, just in case*/
-.left_options, .right_optiones {width: 45%; float: left;}
+#questions {width: 100%;
+  margin: 0 auto;} /*this margin is to center the div automatically, just in case*/
+.left_options, .right_optiones {width: 45%;
+  float: left;
+}
