@@ -4,10 +4,28 @@ class Favourite < ActiveRecord::Base
   has_many :peoples
 
 
+  def self.find_most_recent(user)
+    if check_account_history?(user)
+      recent_search = Favourite.where(user_id: user.id).order(:created_at).last
+      person = Peoples.find(recent_search.id)
+      person.name
+    else
+      "No recent searches"
+    end
+  end
+
+  def self.check_account_history?(user)
+    recent_search = Favourite.where(user_id: user.id).order(:created_at).last
+    if recent_search != nil
+      true
+    end
+  end
+
   def self.love_connection(gender, smartness, species, climate)
     selection = Peoples.where(gender: gender)
     race_selection = relate_race(selection, smartness, species)
-    final_selection = relate_climate(race_selection, climate)
+    climate_selection = relate_climate(race_selection, climate)
+    final_selection = relate_person_to_climate(race_selection, climate_selection)
   end
 
   def self.relate_race(selection, smartness, species)
@@ -35,9 +53,22 @@ class Favourite < ActiveRecord::Base
       output = Planet.where('climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ?' ,'frozen', 'temperate, arid, subartic', 'temperate, artic', 'artic')
     elsif climate == "Blue Sky"
       output = Planet.where('climate LIKE ? OR climate LIKE ?', 'temperate', 'tropical, temperate')
+    elsif climate == "Anything"
+      output = Planet.where('climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ?', 'temperate', 'arid', 'tropical', 'frozen')
     end
     output
-    binding.pry
+  end
+
+  def self.relate_person_to_climate(race_selection, climate_selection)
+    output = []
+    climate_selection.each do |climate|
+      race_selection.each do |person|
+        if climate.id == person.planet_id
+          output << person
+        end
+      end
+    end
+    output.sample
   end
 
 end

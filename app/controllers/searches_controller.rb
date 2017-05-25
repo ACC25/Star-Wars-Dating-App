@@ -9,7 +9,10 @@ class SearchesController < ApplicationController
 
   def create
     @user = current_user
-    Favourite.love_connection(params.keys[0], params.keys[1], params.keys[2], params.keys[3])
+    pairing = Favourite.love_connection(params.keys[0], params.keys[1], params.keys[2], params.keys[3])
+    Favourite.create!(user_id: @user.id,
+                      peoples_id: pairing.id
+                      )
     redirect_to user_dashboards_path(@user)
   end
 

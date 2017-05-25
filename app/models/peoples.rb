@@ -14,5 +14,9 @@ class Peoples < ActiveRecord::Base
     end
     genders.uniq!
   end
-  
+
+  def self.find_my_name(person_id)
+    Peoples.find(person_id).name
+  end
+
 end
