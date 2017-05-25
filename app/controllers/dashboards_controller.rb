@@ -6,7 +6,9 @@ class DashboardsController < ApplicationController
 
   def new
     @user = current_user
-    @favourites = Favourite.new
+    @species = Race.order(:name)
+    @genders = Peoples.list_of_genders
+    @climates = Planet.list_of_climates
   end
 
 

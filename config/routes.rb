@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :show, :create, :index] do
-
     resources :dashboards, only: [:index, :show, :new]
+    resources :favourites, only: [:index, :new]
   end
+
+  get '/search', to: 'searches#new'
+  post '/search', to: 'searches#create'
 
   get '/', to: 'sessions#show'
   get '/login', to: 'sessions#new'
