@@ -1,7 +1,7 @@
 <h1>Star Wars - The Dating App</h1>
 
   <%= semantic_form_for(:search, url: search_path) do |f| %>
-    <%= f.input :gender, :as => :radio, :collection => @genders %>
+    <%= f.input :gender, :as => :radio, :collection => @genders, :wrapper_html => { :class => "something" } %>
     <%= f.input :race, :as => :select, :collection => @species %>
     <%= f.input :climate, :as => :select, :collection => @climates %>
     <%= f.actions :submit %>
