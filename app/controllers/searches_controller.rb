@@ -9,11 +9,8 @@ class SearchesController < ApplicationController
 
   def create
     @user = current_user
-    @gender = params.keys[0]
-    @smartness = params.keys[1]
-    @species = params.keys[2]
-    @climate = params.keys[3]
-    binding.pry
-    @species = Race.find(params["search"]["name"].to_i).name
+    Favourite.love_connection(params.keys[0], params.keys[1], params.keys[2], params.keys[3])
+    redirect_to user_dashboards_path(@user)
   end
+
 end

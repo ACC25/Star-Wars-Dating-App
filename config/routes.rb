@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#new'
   post '/search', to: 'searches#create'
+  get '/search/results', to: 'searches#show'
 
   get '/', to: 'sessions#show'
   get '/login', to: 'sessions#new'

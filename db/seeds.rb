@@ -112,7 +112,7 @@ Vehicle.destroy_all
       Planet.create!(name: planet["name"],
                       climate: planet["climate"],
                       terrain: planet["terrain"],
-                      api_url: planet["url"][0]
+                      api_url: planet["url"]
                     )
       planet_name = planet["name"]
       puts "Creating Planet: #{planet_name}"
@@ -139,7 +139,7 @@ Vehicle.destroy_all
   def create_people_objects(data)
       data.each do |person|
         race = Race.find_by(api_url: person["species"][0])
-        planet = Planet.find_by(api_url: person["homeworld"][0])
+        planet = Planet.find_by(api_url: person["homeworld"])
         Peoples.create!(name: person["name"],
                         height: (person["height"].to_i),
                         skin_colour: person["skin_color"],
