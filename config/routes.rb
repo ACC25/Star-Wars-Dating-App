@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :show, :create, :index] do
-    resources :dashboards, only: [:index, :show, :new]
+    resources :dashboards, only: [:index]
     resources :favourites, only: [:index, :new]
   end
 

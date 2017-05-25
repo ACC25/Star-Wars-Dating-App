@@ -1,4 +1,5 @@
 <h1>Star Wars - The Dating App</h1>
+
 <h1><%= @user.username %>'s New Hope</h1>
 <%= link_to "New Search", search_path %><br>
 
@@ -8,7 +9,7 @@
 <h3>Past Results</h3>
 
 <% @favourites.each do |favourite| %>
-<%= Peoples.find_my_name(favourite.id) %>
-<br><br>
+  <%= Peoples.find_my_name(favourite.id) %>
+  <br><br>
 <% end  %>
 <br>
