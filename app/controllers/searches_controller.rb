@@ -10,10 +10,16 @@ class SearchesController < ApplicationController
   def create
     @user = current_user
     pairing = Favourite.love_connection(params.keys[0], params.keys[1], params.keys[2], params.keys[3])
-    Favourite.create!(user_id: @user.id,
-                      peoples_id: pairing.id
-                      )
-    redirect_to user_dashboards_path(@user)
+    @favourite = Favourite.new(user_id: @user.id,
+                        peoples_id: pairing.id)
+    @favourite.save
+    if @favourite.save
+      flash[:success] = "You found a match!"
+      redirect_to user_dashboards_path(@user)
+    else
+      flash[:success] = "No match found. Please try again."
+      redirect_to search_path
+    end
   end
 
 end

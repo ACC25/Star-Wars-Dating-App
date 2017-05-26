@@ -10,6 +10,7 @@ class Favourite < ActiveRecord::Base
     result = results["items"][0]["link"]
   end
 
+
   def self.find_most_recent(user)
     if check_account_history?(user)
       recent_search = Favourite.where(user_id: user.id).order(:created_at).last
@@ -27,11 +28,38 @@ class Favourite < ActiveRecord::Base
     end
   end
 
+  def self.random_gender?(gender)
+    if gender == "None"
+      genders = []
+      Peoples.order(:gender).each do |person|
+        genders << person.gender
+      end
+      genders.uniq!.sample
+    else
+      gender
+    end
+  end
+
   def self.love_connection(gender, smartness, species, climate)
-    selection = Peoples.where(gender: gender)
-    race_selection = relate_race(selection, smartness, species)
-    climate_selection = relate_climate(race_selection, climate)
-    final_selection = relate_person_to_climate(race_selection, climate_selection)
+    selection = Peoples.where(gender: random_gender?(gender))
+    if selection.count == 1
+      selection
+    else
+      race_selection = relate_race(selection, smartness, species)
+      climate_selection = relate_climate(race_selection, climate)
+      final_selection = relate_person_to_climate(race_selection, climate_selection)
+      verify_final(final_selection)
+    end
+  end
+
+  def self.verify_final(final_selection)
+    output = []
+    if final_selection == nil
+      output = Peoples.find(34)
+    else
+      output = final_selection
+    end
+    output
   end
 
   def self.relate_race(selection, smartness, species)
