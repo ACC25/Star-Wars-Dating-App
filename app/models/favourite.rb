@@ -3,6 +3,12 @@ class Favourite < ActiveRecord::Base
 
   has_many :peoples
 
+  def self.find_image(person)
+    options = {}
+    options[:searchType] = "image"
+    results = GoogleCustomSearchApi.search(person, options)
+    result = results["items"][0]["link"]
+  end
 
   def self.find_most_recent(user)
     if check_account_history?(user)
