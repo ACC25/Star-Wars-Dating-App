@@ -53,7 +53,6 @@ class Favourite < ActiveRecord::Base
   end
 
   def self.verify_final(final_selection)
-    output = []
     if final_selection == nil
       output = Peoples.find(34)
     else

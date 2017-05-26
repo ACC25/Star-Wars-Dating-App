@@ -3,11 +3,21 @@
 <h1><%= @user.username %>'s New Hope</h1>
 <%= link_to "New Search", search_path %><br>
 
-<h3>Recent Results</h3>
-<%= Favourite.find_most_recent(@user) %>
+<h3>Results</h3>
+<div class="match_description">
+  You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br><br>
+
+  Homeworld: <%= @planet %><br>
+  <% if @vehicle == nil && @starship == nil %>
+    Cool factor: Nothing special. But they make great conversation.   
+  <% elsif @vehicle != nil && @starship != nil   %>
+    Cool factor: Ballin' with a <%= @vehicle.name  %> and a <%= @starship.name %>.
+    <% else  %>
+    Cool factor: Ballin' with a <%= @vehicle.name  %>
+    <%end  %>
+</div>
 <div class="image_pair">
 <%= image_tag @image %>
-
 </div>
 
 <h3>Past Results</h3>

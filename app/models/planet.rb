@@ -9,4 +9,9 @@ class Planet < ActiveRecord::Base
     end
     climates.uniq!
   end
+
+  def self.relate_to_match(recent_name)
+    person = Peoples.find_by(name: recent_name)
+    Planet.find(person.planet_id).name
+  end
 end
