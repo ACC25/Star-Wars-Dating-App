@@ -1,11 +1,41 @@
 
-abbr[title="required"] {
+/*abbr[title="required"] {
   display: none;
+}*/
+
+
+/*#questions {width: 100%;
+  margin: 0 auto;} /*this margin is to center the div automatically, just in case*/
+/*.left_options, .right_optiones {width: 45%;
+  /*float: left;
+/*}*/*/*/*/
+.parent {
+  display: flex; /* Or whatever */
 }
 
+.child {
+  width: 300px;  /* Or whatever */
+  height: 150px; /* Or whatever */
+  margin: auto;  /* Magic! */
+  background-color: red;
+  align-content: flex-start;
+  flex-basis: 20%;
+}
 
-#questions {width: 100%;
-  margin: 0 auto;} /*this margin is to center the div automatically, just in case*/
-.left_options, .right_optiones {width: 45%;
-  float: left;
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  align-items: flex-start;
+
+
+  /* Then we define the flow direction and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: wrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  background-color: yellow;
 }
