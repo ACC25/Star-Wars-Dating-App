@@ -7,9 +7,9 @@
 <div class="match_description">
   You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br><br>
 
-  Homeworld: <%= @planet %><br>
+  <strong> Homeworld:</strong> <%= @planet %><br>
   <% if @vehicle == nil && @starship == nil %>
-    Cool factor: Nothing special. But they make great conversation.   
+    Cool factor: Nothing special. But they make great conversation.
   <% elsif @vehicle != nil && @starship != nil   %>
     Cool factor: Ballin' with a <%= @vehicle.name  %> and a <%= @starship.name %>.
     <% else  %>
