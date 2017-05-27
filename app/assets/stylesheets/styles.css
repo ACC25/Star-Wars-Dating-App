@@ -19,6 +19,11 @@
   width: auto;
 }
 
+#account {
+  flex-flow: wrap;
+  align-items: baseline;
+}
+
 input[type=text] {
     width: 25%;
     padding: 12px 20px;
@@ -47,10 +52,6 @@ input[type=text] {
   transition-duration: 0.4s;
 }
 
-.login_button1:hover {
-    background-color: transparent;
-    color: white;
-}
 
 .login_button2 {
   color: black;
@@ -59,11 +60,25 @@ input[type=text] {
   width: auto;
 }
 
+.control_panel_links {
+  top: 20%;
+  left: 17%;
+  position: absolute;
+}
 .login_links {
   /*background-color: red;*/
   top: 50%;
   left: 42%;
   position: absolute;
+}
+
+.home_screen {
+  background-image: url("http://i.imgur.com/YZQMn66.jpg");
+  height: 100%;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login_screen {
