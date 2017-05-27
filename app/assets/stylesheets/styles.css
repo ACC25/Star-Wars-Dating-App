@@ -73,7 +73,7 @@ input[type=text] {
 }
 
 .home_screen {
-  background-image: image-url("http://i.imgur.com/YZQMn66.jpg");
+  background-image: url("https://i.imgur.com/YZQMn66.jpg");
   height: 100%;
   width: auto;
   background-position: center;
@@ -82,7 +82,7 @@ input[type=text] {
 }
 
 .login_screen {
-  background-image: image-url("http://i.imgur.com/knwNG6E.jpg");
+  background-image: url("https://i.imgur.com/knwNG6E.jpg");
   height: 100%;
   width: auto;
   background-position: center;
