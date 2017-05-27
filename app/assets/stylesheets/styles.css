@@ -13,6 +13,21 @@
   display: flex; /* Or whatever */
 }
 
+.create_account {
+  background-color: black;
+  height: 100%;
+  width: auto;
+}
+
+input[type=text] {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
 #login {
   text-align: center;
   height: 100%;
@@ -26,8 +41,8 @@
   /*background-color: #ffff66;*/
   color: black;
   border-radius: 1px;
-  height: 80px;
-  width: 200px;
+  height: 100%;
+  width: auto;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
@@ -40,14 +55,14 @@
 .login_button2 {
   color: black;
   border-radius: 1px;
-  height: 80px;
-  width: 200px;
+  height: 100%;
+  width: auto;
 }
 
 .login_links {
   /*background-color: red;*/
   top: 50%;
-  left: 44%;
+  left: 42%;
   position: absolute;
 }
 

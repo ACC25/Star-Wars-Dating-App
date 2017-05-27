@@ -1,11 +1,14 @@
-<h2>Login Page</h2>
+<div class="create_account">
+
+<font color="Yellow"><h2>Login Page</h2></font>
 
 <%= form_for(:session, url: login_path) do |f| %>
-<%= f.label :username %>
+<font color="Yellow"><%= f.label :username %> </font>
 <%= f.text_field :username %><br>
 
-<%= f.label :password %>
+<font color="Yellow"><%= f.label :password %> </font>
 <%= f.text_field :password %><br>
 
 <%= f.submit "Login" %>
 <%end  %>
+</div>
