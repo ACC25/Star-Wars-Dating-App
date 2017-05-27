@@ -1,60 +1,77 @@
-<h1>Star Wars - The Dating App</h1>
-<div class="flex-container">
+<div class="search_page">
+  <div class="flex-container">
 
-      <form name="formName" action="/search" method="POST">
-          <h2>Gender Preference?</h2><br>
-          <div class="child">
-               <p><input type="checkbox" name="male" value="male" id="gender_male"><label for="gender_male">Male</label></p>
-             </div>
-             <div class="child">
-               <p><input type="checkbox" name="female" value="female" id="gender_female"><label for="gender_female">Female</label></p><br>
-             </div>
-          <div class="child">
-             <p><input type="checkbox" name="None" value="None" id="gender_none"><label for="gender_none">Anything</label></p>
-           </div><br><br><br>
-</div><br>
-<div class="flex-container">
+    <form name="formName" action="/search" method="POST">
+      <font color="White"><h2>Preferred Gender?</h2><br></font>
+      <div class="child">
+        <p><input type="checkbox" name="male" value="male" id="gender_male"><font color="White"><label for="gender_male">Male</label></font></p>
+        <img src="http://i.imgur.com/ArUNbSD.jpg" alt="male">
+        <br>
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="female" value="female" id="gender_female"><font color="White"><label for="gender_female">Female</label></font></p>
+        <img src="http://i.imgur.com/jH2OWz0.jpg" alt="women">
+        <br>
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="None" value="None" id="gender_none"><font color="White"><label for="gender_none">Anything</label></font></p>
+        <img src="http://i.imgur.com/2pFqnNz.jpg" alt="anything">
+      </div><br>
+    </div><br>
+    <div class="flex-container">
 
-             <h2>Smartness?</h2><br>
-             <div class="child">
-               <p><input type="checkbox" name="sentient" value="sentient" id="sentient"><label for="sentient">Sentient</label></p>
-             </div>
-               <div class="child">
-                 <p><input type="checkbox" name="sentient" value="Random" id="Random"><label for="Random">Random</label></p>
-               </div><br>
-</div><br>
-<div class="flex-container">
+      <font color="White"><h2>Intelligence?</h2></font><br>
+      <div class="child">
+        <p><input type="checkbox" name="sentient" value="sentient" id="sentient"><font color="White"><label for="sentient">Sentient</label></font></p>
+        <img src="http://i.imgur.com/H0Dx0fn.jpg" alt="sentient">
+        <br>
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="sentient" value="Random" id="Random"><font color="White"><label for="Random">Random</label></font></p>
+        <img src="http://i.imgur.com/2pFqnNz.jpg" alt="anything">
+      </div><br>
+    </div><br>
+    <div class="flex-container">
 
-                <h2>What Species Interests You?</h2><br>
-                <div class="child">
-                     <p><input type="checkbox" name="Human" value="Human" id="human"><label for="human">Human</label></p>
-                </div>
-                <div class="child">
-                   <p><input type="checkbox" name="Random" value="Random" id="Random"><label for="Random">Surprise Me!</label></p><br>
-                   </div>
-</div><br>
-<div class="flex-container">
+      <font color="White"><h2>What Species Interests You?</h2></font><br>
+      <div class="child">
+        <p><input type="checkbox" name="Human" value="Human" id="human"><font color="White"><label for="human">Human</label></font></p>
+        <img src="http://i.imgur.com/trTdf1G.jpg" alt="human">
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="Random" value="Random" id="Random"><font color="White"><label for="Random">Surprise Me!</label></font></p>
+        <img src="http://i.imgur.com/2pFqnNz.jpg" alt="anything">
+        <br>
+      </div>
+    </div><br>
+    <div class="flex-container_climate">
 
-                <h2>Favourite Climate?</h2>
-                <br></br>
-                <div class="child">
-                     <p><input type="checkbox" name="Sandy" value="Sandy" id="Sandy"><label for="Sandy">Sandy</label></p>
-                   </div>
-                   <div class="child">
-                     <p><input type="checkbox" name="Snowy" value="Snowy" id="Snowy"><label for="Snowy">Snowy</label></p>
-                   </div>
-                <div class="child">
-                  <p><input type="checkbox" name="Blue Sky" value="Blue Sky" id="Blue Sky"><label for="Blue Sky">Blue Sky</label></p>
-                </div>
-                <div class="child">
-                  <p><input type="checkbox" name="Anything" value="Anything" id="Anything"><label for="Anything">No Preference</label></p>
-                </div>
+      <font color="White"><h2>Favourite Climate?</h2></font>
+      <br></br>
+      <div class="child">
+        <p><input type="checkbox" name="Sandy" value="Sandy" id="Sandy"><font color="White"><label for="Sandy">Sandy</label></font></p>
+        <img src="http://i.imgur.com/Bk8RURf.jpg" alt="sandy">
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="Snowy" value="Snowy" id="Snowy"><font color="White"><label for="Snowy">Snowy</label></font></p>
+        <img src="http://i.imgur.com/pprxJpy.jpg" alt="snowy">
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="Blue Sky" value="Blue Sky" id="Blue Sky"><font color="White"><label for="Blue Sky">Blue Sky</label></font></p>
+        <img src="http://i.imgur.com/DnaYDOo.jpg" alt="bluesky">
+      </div>
+      <div class="child">
+        <p><input type="checkbox" name="Anything" value="Anything" id="Anything"><font color="White"><label for="Anything">No Preference</label></font></p>
+        <img src="http://i.imgur.com/2pFqnNz.jpg" alt="anything">
+        <br>
+      </div>
 
-                   <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
-                 </div><br>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
 
-             <p><input type="submit" value ="Submit"></p>
-         </div>
-  </form>
+    </div><br>
+    <p><input type="submit" value ="Submit"></p>
+  </div>
+</form>
+</div>
 
 </div>
