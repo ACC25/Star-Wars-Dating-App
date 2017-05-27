@@ -82,7 +82,7 @@ input[type=text] {
 }
 
 .login_screen {
-  background-image: url("starwars_login.jpg");
+  background-image: url("http://i.imgur.com/knwNG6E.jpg");
   height: 100%;
   width: auto;
   background-position: center;
