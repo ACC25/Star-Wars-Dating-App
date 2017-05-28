@@ -13,6 +13,10 @@ class Dashboard < ActiveRecord::Base
               :count => count}
   end
 
-  def self.find_image(name)
+  def self.find_youtube_links(most_common)
+    options = {}
+    options[:searchType] = "image"
+    results = GoogleCustomSearchApi.search(most_common, options)
+    result = results["items"][1]["image"]["contextLink"]
   end
 end
