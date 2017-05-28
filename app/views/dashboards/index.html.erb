@@ -3,15 +3,20 @@
 
 <div class="match_description">
 <h2>RESULTS</h2>
-  You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br><br>
+  You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br>
 
   <h2> HOMEWORLD:</h2> <strong><%= @planet %></strong><br>
   <% if @vehicle == nil && @starship == nil %>
-    Cool factor: Nothing special. But they make great conversation.
+    <h2>RECOMMENDATION: </h2>
+    SKIP. The Ministry of Transportation's records show that they don't have their pilots lisence.<br>
+    <img src="https://i.imgur.com/T6ZKN27.jpg" alt="thumbs down">
   <% elsif @vehicle != nil && @starship != nil   %>
-    Cool factor: Ballin' with a <%= @vehicle.name  %> and a <%= @starship.name %>.
-    <% else  %>
-    Cool factor: Ballin' with a <%= @vehicle.name  %>
+    DATE THEM! Our records show they have a  <%= @vehicle.name  %> and a <%= @starship.name %>.<br>
+    <img src="https://i.imgur.com/rdUFsCv.jpg" alt="thumbs up">
+    <% elsif @vehicle != nil  %>
+    DATE THEM! Our records show they have a <%= @vehicle.name  %><br>
+    <img src="https://i.imgur.com/rdUFsCv.jpg" alt="thumbps up">
+
     <%end  %>
     <br><br><br>
     <%= link_to "NEW SEARCH", search_path %><br>

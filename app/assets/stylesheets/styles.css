@@ -22,7 +22,8 @@
 .dash_board_page {
   background-image: url("http://i.imgur.com/6930B7j.jpg");
   height: 100%;
-  position: relative;
+  margin-left:auto;
+  margin-right:auto;
   width: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -168,17 +169,9 @@ input[type=checkbox]:checked + label {
 }
 
 .image_pair {
-  /*display: flex;*/
-  /*flex-flow: row;
-  justify-content: space-between;
-  justify-content: flex-end;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: flex-start;
-   justify-content: flex-start;*/
-  left: 660px;
-  top: 190px;
-  margin: 50;
+  left: 56%;
+  top: 30%;
   display:inline-block;
   position: absolute;
+  z-index: 22;
 }
