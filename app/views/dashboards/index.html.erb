@@ -9,13 +9,13 @@
   <h2>RECOMMENDATION: </h2>
   <% if @vehicle == nil && @starship == nil %>
     SKIP. The Ministry of Transportation's records show that they don't have their pilots lisence.<br>
-    <img src="https://i.imgur.com/T6ZKN27.jpg" alt="thumbs down">
+    <img src="http://i.imgur.com/vAOR5xS.png" alt="thumbs down">
   <% elsif @vehicle != nil && @starship != nil   %>
     DATE THEM! Our records show they have a  <%= @vehicle.name  %> and a <%= @starship.name %>.<br>
-    <img src="https://i.imgur.com/rdUFsCv.jpg" alt="thumbs up">
+    <img src="http://i.imgur.com/j4yHIwQ.png" alt="thumbs up">
     <% elsif @vehicle != nil  %>
     DATE THEM! Our records show they have a <%= @vehicle.name  %><br>
-    <img src="https://i.imgur.com/rdUFsCv.jpg" alt="thumbps up">
+    <img src="http://i.imgur.com/j4yHIwQ.png" alt="thumbps up">
 
     <%end  %>
     <br><br><br>
