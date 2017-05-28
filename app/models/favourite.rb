@@ -10,6 +10,12 @@ class Favourite < ActiveRecord::Base
     result = results["items"][0]["link"]
   end
 
+  def self.find_wiki_links(person)
+    options = {}
+    results = GoogleCustomSearchApi.search(person, options)
+    result = results["items"][0]["link"]
+  end
+
 
   def self.find_most_recent(user)
     if check_account_history?(user)
