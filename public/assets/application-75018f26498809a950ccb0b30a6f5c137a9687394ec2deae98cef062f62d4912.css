@@ -1,0 +1,205 @@
+
+/*abbr[title="required"] {
+  display: none;
+}*/
+
+
+/*#questions {width: 100%;
+  margin: 0 auto;} /*this margin is to center the div automatically, just in case*/
+/*.left_options, .right_optiones {width: 45%;
+  /*float: left;
+/*}*/
+*/*/*/
+.parent {
+  display: flex; /* Or whatever */
+}
+
+.create_account {
+  background-color: #000000;
+  height: 100%;
+  width: auto;
+}
+
+.dash_board_page {
+  background-image: url("http://i.imgur.com/6930B7j.jpg");
+  height: 100%;
+  position: relative;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.past_results {
+  overflow-y: auto;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+#account {
+  flex-flow: wrap;
+  align-items: baseline;
+}
+
+input[type=text] {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
+.match_description {
+  top: 28%;
+  left: 79%;
+  position: absolute;
+}
+
+#login {
+  text-align: center;
+  height: 100%;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login_button1 {
+  /*background-color: #ffff66;*/
+  color: black;
+  border-radius: 1px;
+  height: 100%;
+  width: auto;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+.login_button2 {
+  color: black;
+  border-radius: 1px;
+  height: 100%;
+  width: auto;
+}
+
+.control_panel_links {
+  top: 20%;
+  left: 17%;
+  position: absolute;
+}
+.login_links {
+  /*background-color: red;*/
+  top: 50%;
+  left: 42%;
+  position: absolute;
+}
+
+.home_screen {
+  background-image: url("https://i.imgur.com/YZQMn66.jpg");
+  height: 100%;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login_screen {
+  background-image: url("https://i.imgur.com/knwNG6E.jpg");
+  height: 100%;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html,body {
+    height:100%;
+    width: auto;
+}
+
+.child {  /* Magic! */
+  align-content: space-between;
+}
+input[type=checkbox] {
+    display: block;
+}
+
+input[type=checkbox] + label {
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+input[type=checkbox]:checked + label {
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+
+}
+
+.search_page {
+  background-color: black;
+}
+
+.flex-container_climate {
+    display: flex;
+    height: 50%;
+    width: auto;
+    flex-flow: nowrap;
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-between;
+}
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  width: auto;
+
+
+
+  /* Then we define the flow direction and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: nowrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+}
+
+.image_pair {
+  /*display: flex;*/
+  /*flex-flow: row;
+  justify-content: space-between;
+  justify-content: flex-end;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+   justify-content: flex-start;*/
+  left: 660px;
+  top: 190px;
+  margin: 50;
+  display:inline-block;
+  position: absolute;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+
+ *= require formtastic
+ *= require my_formtastic_changes
