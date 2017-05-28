@@ -58,7 +58,7 @@ class Favourite < ActiveRecord::Base
     else
       output = final_selection
     end
-    output
+    output.id
   end
 
   def self.relate_race(selection, smartness, species)

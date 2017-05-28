@@ -6,8 +6,8 @@
   You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br>
 
   <h2> HOMEWORLD:</h2> <strong><%= @planet %></strong><br>
+  <h2>RECOMMENDATION: </h2>
   <% if @vehicle == nil && @starship == nil %>
-    <h2>RECOMMENDATION: </h2>
     SKIP. The Ministry of Transportation's records show that they don't have their pilots lisence.<br>
     <img src="https://i.imgur.com/T6ZKN27.jpg" alt="thumbs down">
   <% elsif @vehicle != nil && @starship != nil   %>
