@@ -19,6 +19,21 @@
   width: auto;
 }
 
+.dash_board_page {
+  background-image: url("http://i.imgur.com/6930B7j.jpg");
+  height: 100%;
+  position: relative;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.past_results {
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
 #account {
   flex-flow: wrap;
   align-items: baseline;
@@ -33,6 +48,21 @@ input[type=text] {
     border-radius: 4px;
 }
 
+.match_description {
+  top: 28%;
+  left: 79%;
+  position: absolute;
+}
+
+.image_pair {
+  align-items: baseline;
+  flex: auto;
+  position: absolute;
+  left: 620px;
+  top: 150px;
+  margin: 0;
+  position: absolute;
+}
 #login {
   text-align: center;
   height: 100%;

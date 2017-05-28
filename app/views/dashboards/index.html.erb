@@ -1,10 +1,9 @@
-<h1>Star Wars - The Dating App</h1>
+<div class="dash_board_page">
 
-<h1><%= @user.username %>'s New Hope</h1>
 <%= link_to "New Search", search_path %><br>
 
-<h3>Results</h3>
 <div class="match_description">
+<h3>Results</h3>
   You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br><br>
 
   <strong> Homeworld:</strong> <%= @planet %><br>
@@ -15,15 +14,19 @@
     <% else  %>
     Cool factor: Ballin' with a <%= @vehicle.name  %>
     <%end  %>
+    <br>
 </div>
 <div class="image_pair">
 <%= image_tag @image %>
 </div>
 
-<h3>Past Results</h3>
+<div class="past_results">
+  <h3>Past Results</h3>
 
-<% @favourites.each do |favourite| %>
-  <%= Peoples.find_my_name(favourite.id) %>
-  <br><br>
-<% end  %>
-<br>
+  <% @favourites.each do |favourite| %>
+    <%= Peoples.find_my_name(favourite.id) %>
+    <br><br>
+  <% end  %>
+  <br>
+</div>
+</div>
