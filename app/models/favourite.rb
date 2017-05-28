@@ -21,9 +21,17 @@ class Favourite < ActiveRecord::Base
     if check_account_history?(user)
       recent_search = Favourite.where(user_id: user.id).order(:created_at).last
       person = Peoples.find(recent_search.id)
-      person.name
+      person_valid?(person)
     else
       "No recent searches"
+    end
+  end
+
+  def self.person_valid?(person)
+    if person == nil
+      "No recent searches"
+    else
+      person.name
     end
   end
 
@@ -75,6 +83,13 @@ class Favourite < ActiveRecord::Base
       end
     end
     qualifying_candidates
+  end
+
+  def self.destroy_all
+    all = Favourite.all
+    all.each do |favs|
+      favs.destroy
+    end
   end
 
   def self.race?(person, smartness, species)

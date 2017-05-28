@@ -31,7 +31,7 @@ RSpec.describe "user can navigate to match page" do
                             api_url: "the"
                           )
   visit new_user_path
-  fill_in "Username", with: "Carl"
+  fill_in "Username", with: "Carlsss"
   fill_in "Password", with: "password"
   click_button "Create Account"
 
@@ -45,10 +45,5 @@ RSpec.describe "user can navigate to match page" do
   assert page.has_content?("PAST RESULTS")
   assert page.has_content?("Home")
   assert page.has_content?("SKIP")
-  save_and_open_page
-
-
-
-
   end
 end

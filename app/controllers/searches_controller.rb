@@ -15,7 +15,6 @@ class SearchesController < ApplicationController
                                         params.keys[3])
     @favourite = Favourite.new(user_id: @user.id,
                         peoples_id: pairing)
-    @favourite.save
     if @favourite.save
       flash[:success] = "You found a match!"
       redirect_to user_dashboards_path(@user)
