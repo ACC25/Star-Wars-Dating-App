@@ -3,10 +3,10 @@
 <%= link_to "New Search", search_path %><br>
 
 <div class="match_description">
-<h3>Results</h3>
+<h2>RESULTS</h2>
   You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br><br>
 
-  <strong> Homeworld:</strong> <%= @planet %><br>
+  <h2> HOMEWORLD:</h2> <strong><%= @planet %></strong><br>
   <% if @vehicle == nil && @starship == nil %>
     Cool factor: Nothing special. But they make great conversation.
   <% elsif @vehicle != nil && @starship != nil   %>

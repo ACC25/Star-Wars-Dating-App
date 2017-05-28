@@ -30,6 +30,7 @@
 }
 
 .past_results {
+  overflow-y: auto;
   flex-direction: row;
   flex-flow: wrap;
 }
@@ -58,8 +59,8 @@ input[type=text] {
   align-items: baseline;
   flex: auto;
   position: absolute;
-  left: 620px;
-  top: 150px;
+  left: 660px;
+  top: 190px;
   margin: 0;
   position: absolute;
 }
