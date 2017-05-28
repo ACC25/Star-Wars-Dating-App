@@ -19,8 +19,25 @@
   width: auto;
 }
 
+.stats_page_container {
+  background-image: url("http://i.imgur.com/fxm9kVD.jpg");
+  height: 100%;
+  width: auto;
+  position: relative;
+  background-position: center;
+}
+
+.most_common {
+  flex-direction: column;
+  flex-flow: wrap-reverse;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+
+
 .dash_board_page {
-  background-image: url("http://i.imgur.com/6930B7j.jpg");
+  background-image: url("https://i.imgur.com/6930B7j.jpg");
   height: 100%;
   margin-left:auto;
   margin-right:auto;
@@ -171,7 +188,7 @@ input[type=checkbox]:checked + label {
 .image_pair {
   left: 56%;
   top: 30%;
-  display:inline-block;
+  display: inline-block;
   position: absolute;
   z-index: 22;
 }

@@ -2,16 +2,22 @@
   <div class="control_panel_links">
       <div class="login_button1">
         <p id="login">
+          <a href="<%=@user.id%>/dashboards/<%=@user.id%>">
+            <img src="http://i.imgur.com/wCwCeQt.jpg" alt="stats"/>
+          </a>
+        </p>
+        <br>
+        <p id="login">
           <a href="<%=@user.id%>/dashboards">
             <img src="http://i.imgur.com/WolnKfE.jpg" alt="account"/>
           </a>
         </p><br>
-      </div>
-  <p id="login">
-    <a href="/search">
-      <img src="http://i.imgur.com/Px9Ta6d.jpg" alt="search"/>
-    </a>
-  </p><br>
+      <p id="login">
+      <a href="/search">
+        <img src="http://i.imgur.com/Px9Ta6d.jpg" alt="search"/>
+      </a>
+    </p>
+  <br>
 </div>
-</div>
+  </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="stats_page_container">
+  <div class="most_commmon">
+    <h2>Number of Searches</h2>
+    <%= @information[:count] %>
+    <h2>Most Common Match</h2>
+    <%= @information[:most_common] %>
+    <h2>Most Common Species</h2>
+    <%= @information[:most_common_species].name %>
+    <h2>Gender Preference</h2>
+    <%= @information[:most_common_gender].capitalize %>
+  </div>
+</div>

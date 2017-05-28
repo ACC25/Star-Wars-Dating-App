@@ -10,7 +10,10 @@ class DashboardsController < ApplicationController
     @image = Favourite.find_image(@most_recent)
   end
 
-  def new
+  def show
+    @user = current_user
+    @information = Dashboard.user_information(@user)
+    @image = Favourite.find_image(@information[:most_common])
   end
 
 
