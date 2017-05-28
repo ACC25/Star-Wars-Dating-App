@@ -15,12 +15,13 @@
     <%end  %>
     <br><br><br>
     <%= link_to "NEW SEARCH", search_path %><br>
+    <%= link_to "CONTROL PANEL", @user %>
 </div>
 <div class="image_pair">
   <%= image_tag @image %>
 </div>
 <div class="past_results">
-  <h3>Past Results</h3>
+  <h3>PAST RESULTS</h3>
 
   <% @favourites.each do |favourite| %>
     <%= Peoples.find_my_name(favourite.id) %>
