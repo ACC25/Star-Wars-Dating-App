@@ -175,6 +175,12 @@ Vehicle.destroy_all
       output.id
     end
 
+    def create_admin
+      User.create!(username: "Darth Vader",
+                    password: "snowboard",
+                    role: 1)
+      puts "Creating Admin"
+    end
 
 
 collect_planets
@@ -182,3 +188,4 @@ collect_races
 collect_peoples
 collect_vehicles
 collect_starships
+create_admin

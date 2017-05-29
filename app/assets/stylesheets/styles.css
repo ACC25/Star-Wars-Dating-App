@@ -28,11 +28,20 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.overview_page_container {
+  background-image: url("http://i.imgur.com/8jS6axV.jpg");
+  height: 100%;
+  width: auto;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .most_common {
   position: absolute;
-  top: 23%;
-  left: 40%;
+  top: 14%;
+  left: 30%;
 }
 
 
@@ -192,7 +201,7 @@ input[type=checkbox]:checked + label {
 }
 
 .image_pair {
-  left: 56%;
+  left: 54%;
   top: 30%;
   display: inline-block;
   position: absolute;

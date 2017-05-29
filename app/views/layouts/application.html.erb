@@ -13,7 +13,7 @@
     <%= yield %>
     <br>
     <%if current_user  %>
-    Current User: <%= @current_user.username%>
+    Current User: <%= current_user.username%>
     <%= link_to "Logout", logout_path, method: :delete %>
     <%end %>
   </body>

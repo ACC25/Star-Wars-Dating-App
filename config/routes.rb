@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'sessions#show'
 
+  namespace :admin do
+    resources :overview, only: [:index]
+  end
 
   resources :users, only: [:new, :show, :create, :index] do
     resources :dashboards, only: [:index, :show]

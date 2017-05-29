@@ -1,0 +1,14 @@
+<div class="overview_page_container">
+  <div class="most_common">
+    <h2>TOTAL SEARCHES</h2>
+    <%= @total_searches %>
+    <h2>MOST COMMON MATCH</h2>
+    <%= @favourite %>
+    <h2>FAVOURITE GENDER</h2>
+    <%= @gender %>
+    <h2>MOST ACTIVE USER</h2>
+    <%= @most_active %>
+    <br><br>
+    <%=link_to "CONTROL PANEL", user_path(current_user) %>
+  </div>
+</div>
