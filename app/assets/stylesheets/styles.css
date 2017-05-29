@@ -51,6 +51,9 @@
   overflow-y: auto;
   flex-direction: row;
   flex-flow: wrap;
+  height: 300px;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
 }
 
 #account {
@@ -70,7 +73,10 @@ input[type=text] {
 .match_description {
   top: 20%;
   left: 79%;
+  height: 450px;
   position: absolute;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
 }
 
 #login {

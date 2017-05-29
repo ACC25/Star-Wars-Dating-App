@@ -41,9 +41,14 @@ RSpec.describe "user can navigate to match page" do
   check "Human"
   find(:css, "#Anything").set(true)
   click_button "Submit"
+
   assert page.has_content?("RESULTS")
   assert page.has_content?("PAST RESULTS")
   assert page.has_content?("Home")
   assert page.has_content?("SKIP")
+
+  click_link "CONTROL PANEL"
+  click_link "stats"
+  expect(path).to eq("/dashboards/i")
   end
 end

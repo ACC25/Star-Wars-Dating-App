@@ -16,10 +16,16 @@ class Favourite < ActiveRecord::Base
   end
 
   def self.find_image(person)
-    options = {}
-    options[:searchType] = "image"
-    results = GoogleCustomSearchApi.search(person, options)
-    result = results["items"][0]["link"]
+    if person == "Jar Jar Binks"
+      result = "https://i.imgur.com/q8UNfXf.jpg"
+    elsif person == "Darth Vader"
+      result = "https://i.imgur.com/Iswi6fL.jpg"
+    else
+      options = {}
+      options[:searchType] = "image"
+      results = GoogleCustomSearchApi.search(person, options)
+      result = results["items"][0]["link"]
+    end
   end
 
   def self.find_wiki_links(person)
