@@ -36,6 +36,8 @@ class Favourite < ActiveRecord::Base
   def self.find_image(person)
     if person == "No recent searches"
       result = "https://i.imgur.com/NlLpf53.png"
+    elsif person == "Cordé"
+      result = "https://i.imgur.com/4JbybRm.png"
     elsif person == "Jar Jar Binks"
       result = "https://i.imgur.com/q8UNfXf.jpg"
     elsif person == "Darth Vader"
