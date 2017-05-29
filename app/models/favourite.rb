@@ -20,6 +20,8 @@ class Favourite < ActiveRecord::Base
       result = "https://i.imgur.com/q8UNfXf.jpg"
     elsif person == "Darth Vader"
       result = "https://i.imgur.com/Iswi6fL.jpg"
+    elsif person == "Obi-Wan Kenobi"
+      result = "http://i.imgur.com/VFuBjyn.jpg"
     else
       options = {}
       options[:searchType] = "image"
