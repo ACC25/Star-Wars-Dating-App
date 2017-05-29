@@ -20,7 +20,7 @@ class Admin::OverviewController < ApplicationController
     if top == {}
       "Need more information"
     else
-      User.find(top.max_by{|k,v| v}[1])
+      # User.find(top.max_by{|k,v| v}[1])
     end
   end
 
