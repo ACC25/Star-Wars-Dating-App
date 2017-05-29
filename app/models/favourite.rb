@@ -15,6 +15,24 @@ class Favourite < ActiveRecord::Base
     end
   end
 
+  def self.find_most_recent(user)
+    if check_account_history?(user)
+      recent_search = Favourite.where(user_id: user.id).order(:created_at).last
+      person = Peoples.find(recent_search.peoples_id)
+      person_valid?(person)
+    else
+      "No recent searches"
+    end
+  end
+
+  def self.person_valid?(person)
+    if person == nil
+      "No recent searches"
+    else
+      person.name
+    end
+  end
+
   def self.find_image(person)
     if person == "Jar Jar Binks"
       result = "https://i.imgur.com/q8UNfXf.jpg"
@@ -56,16 +74,29 @@ class Favourite < ActiveRecord::Base
     qualifying_candidates = []
     selection.each do |person|
       if race?(person, smartness, species)
-        qualifying_candidates << person
+        if species?(person, species)
+          qualifying_candidates << person
+        end
       end
     end
     qualifying_candidates
   end
 
   def self.race?(person, smartness, species)
-    species_search = Race.find_by(name: species.capitalize, designation: smartness.downcase)
-    if species_search != nil
+      species_search = Race.find_by(id: person.race_id)
+        if species_search != nil
+          true
+        end
+  end
+
+  def self.species?(person, species)
+    if species == "Random"
       true
+    elsif species == "Human"
+      race = Race.find(person.race_id).id
+      if race == 36
+        true
+      end
     end
   end
 
@@ -105,23 +136,7 @@ def self.verify_final(final_selection)
   output.id
 end
 
-def self.find_most_recent(user)
-  if check_account_history?(user)
-    recent_search = Favourite.where(user_id: user.id).order(:created_at).last
-    person = Peoples.find(recent_search.id)
-    person_valid?(person)
-  else
-    "No recent searches"
-  end
-end
 
-def self.person_valid?(person)
-  if person == nil
-    "No recent searches"
-  else
-    person.name
-  end
-end
 
 def self.check_account_history?(user)
   recent_search = Favourite.where(user_id: user.id).order(:created_at).last

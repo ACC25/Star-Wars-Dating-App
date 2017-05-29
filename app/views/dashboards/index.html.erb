@@ -34,7 +34,7 @@
   <h3>PAST RESULTS</h3>
 
   <% @favourites.each do |favourite| %>
-    <% person = Peoples.find_my_name(favourite.id) %>
+    <% person = Peoples.find_my_name(favourite.peoples_id) %>
     <%= link_to person, Dashboard.find_youtube_links(person) %>
     <br><br>
   <% end  %>
