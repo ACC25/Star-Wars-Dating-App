@@ -39,7 +39,7 @@ class Favourite < ActiveRecord::Base
     elsif person == "Jar Jar Binks"
       result = "https://i.imgur.com/q8UNfXf.jpg"
     elsif person == "Darth Vader"
-      result = "https://i.imgur.com/Iswi6fL.jpg"
+      result = "https://i.imgur.com/Iswi6fL.jpg?1"
     elsif person == "Obi-Wan Kenobi"
       result = "https://i.imgur.com/VFuBjyn.jpg"
     elsif person == "Anakin Skywalker"

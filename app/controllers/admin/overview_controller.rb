@@ -9,7 +9,7 @@ class Admin::OverviewController < ApplicationController
     @total_searches = Favourite.all.count
     @favourite = find_most_common.name
     @gender = find_most_common.gender.capitalize!
-    @most_active = most_active
+    @most_active = most_active.username
   end
 
 
@@ -20,7 +20,7 @@ class Admin::OverviewController < ApplicationController
     if top == {}
       "Need more information"
     else
-      User.find(top.max_by{|k,v| v}[0])
+      User.find(top.max_by{|k,v| v}[1])
     end
   end
 
