@@ -177,7 +177,7 @@ Vehicle.destroy_all
 
     def create_admin
       User.create!(username: "Darth Vader",
-                    password: "snowboard",
+                    password: "starwars",
                     role: 1)
       puts "Creating Admin"
     end
