@@ -1,4 +1,4 @@
-# Star Wars Dating App - Finding You Love In A Galaxy Far, Far Away!
+# The Star Wars Dating App - Finding you love in a galaxy far, far away!
 
 I came up with this idea to practice database setup, user authentication, authorization, and working with multiple APIs in the same project - while having some fun along the way. 
 
