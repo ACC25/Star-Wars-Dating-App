@@ -3,6 +3,18 @@ class Favourite < ActiveRecord::Base
 
   has_many :peoples
 
+  def self.love_connection(gender, smartness, species, climate)
+    selection = Peoples.where(gender: random_gender?(gender))
+    if selection.count == 1
+      selection
+    else
+      race_selection = relate_race(selection, smartness, species)
+      climate_selection = relate_climate(race_selection, climate)
+      final_selection = relate_person_to_climate(race_selection, climate_selection)
+      verify_final(final_selection)
+    end
+  end
+
   def self.find_image(person)
     options = {}
     options[:searchType] = "image"
@@ -16,31 +28,7 @@ class Favourite < ActiveRecord::Base
     result = results["items"][0]["link"]
   end
 
-
-  def self.find_most_recent(user)
-    if check_account_history?(user)
-      recent_search = Favourite.where(user_id: user.id).order(:created_at).last
-      person = Peoples.find(recent_search.id)
-      person_valid?(person)
-    else
-      "No recent searches"
-    end
-  end
-
-  def self.person_valid?(person)
-    if person == nil
-      "No recent searches"
-    else
-      person.name
-    end
-  end
-
-  def self.check_account_history?(user)
-    recent_search = Favourite.where(user_id: user.id).order(:created_at).last
-    if recent_search != nil
-      true
-    end
-  end
+  private
 
   def self.random_gender?(gender)
     if gender == "None"
@@ -54,27 +42,6 @@ class Favourite < ActiveRecord::Base
     end
   end
 
-  def self.love_connection(gender, smartness, species, climate)
-    selection = Peoples.where(gender: random_gender?(gender))
-    if selection.count == 1
-      selection
-    else
-      race_selection = relate_race(selection, smartness, species)
-      climate_selection = relate_climate(race_selection, climate)
-      final_selection = relate_person_to_climate(race_selection, climate_selection)
-      verify_final(final_selection)
-    end
-  end
-
-  def self.verify_final(final_selection)
-    if final_selection == nil
-      output = Peoples.find_by(name: "Jar Jar Binks")
-    else
-      output = final_selection
-    end
-    output.id
-  end
-
   def self.relate_race(selection, smartness, species)
     qualifying_candidates = []
     selection.each do |person|
@@ -83,13 +50,6 @@ class Favourite < ActiveRecord::Base
       end
     end
     qualifying_candidates
-  end
-
-  def self.destroy_all
-    all = Favourite.all
-    all.each do |favs|
-      favs.destroy
-    end
   end
 
   def self.race?(person, smartness, species)
@@ -125,4 +85,38 @@ class Favourite < ActiveRecord::Base
     output.sample
   end
 
+
+def self.verify_final(final_selection)
+  if final_selection == nil
+    output = Peoples.find_by(name: "Jar Jar Binks")
+  else
+    output = final_selection
+  end
+  output.id
+end
+
+def self.find_most_recent(user)
+  if check_account_history?(user)
+    recent_search = Favourite.where(user_id: user.id).order(:created_at).last
+    person = Peoples.find(recent_search.id)
+    person_valid?(person)
+  else
+    "No recent searches"
+  end
+end
+
+def self.person_valid?(person)
+  if person == nil
+    "No recent searches"
+  else
+    person.name
+  end
+end
+
+def self.check_account_history?(user)
+  recent_search = Favourite.where(user_id: user.id).order(:created_at).last
+  if recent_search != nil
+    true
+  end
+end
 end
