@@ -16,7 +16,11 @@ class Peoples < ActiveRecord::Base
   end
 
   def self.find_my_name(person_id)
-    Peoples.find(person_id).name
+    if person_id.class != Fixnum
+      "Database hiccup"
+    else
+      Peoples.find(person_id).name
+    end
   end
 
 end
