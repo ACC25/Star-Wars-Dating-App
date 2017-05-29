@@ -4,6 +4,7 @@
 <div class="match_description">
 <h2>RESULTS</h2>
   You matched with <strong><%= Favourite.find_most_recent(@user) %></strong>!<br>
+  <%= link_to "Who is this?", Favourite.find_wiki_links(@wiki) %>
 
   <h2> HOMEWORLD:</h2> <strong><%= @planet %></strong><br>
   <h2>RECOMMENDATION: </h2>

@@ -8,17 +8,13 @@ class DashboardsController < ApplicationController
     @starship = Starship.relate_to_match(@most_recent)
     @vehicle = Vehicle.relate_to_match(@most_recent)
     @image = Favourite.find_image(@most_recent)
+    @wiki = Favourite.find_wiki_links(@most_recent)
   end
 
   def show
     @user = current_user
     @information = Dashboard.user_information(@user)
-    @image = Favourite.find_image(@information[:most_common])
   end
-
-
-
-  private
 
 
 end

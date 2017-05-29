@@ -4,7 +4,6 @@
     <%= @information[:count] %>
     <h2>Most Common Match</h2>
     <%= @information[:most_common] %>
-    <%= link_to "Wiki", Favourite.find_wiki_links(@information[:most_common]) %>
     <h2>Most Common Species</h2>
     <%= @information[:most_common_species].name %>
     <h2>Gender Preference</h2>

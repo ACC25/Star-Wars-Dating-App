@@ -14,7 +14,11 @@ class Dashboard < ActiveRecord::Base
 
   def self.find_repeating(user)
     selection = Favourite.where(user_id: user.id).group(:peoples_id).having("count(*) > 1").count
-    Peoples.find(selection.max_by{|k,v| v}[0])
+    if selection == {}
+      Peoples.find(34)
+    else
+      Peoples.find(selection.max_by{|k,v| v}[0])
+    end
   end
 
   def self.find_youtube_links(most_common)
@@ -23,4 +27,5 @@ class Dashboard < ActiveRecord::Base
     results = GoogleCustomSearchApi.search(most_common, options)
     result = results["items"][1]["image"]["contextLink"]
   end
+
 end
