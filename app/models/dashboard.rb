@@ -25,7 +25,11 @@ class Dashboard < ActiveRecord::Base
     options = {}
     options[:searchType] = "image"
     results = GoogleCustomSearchApi.search(most_common, options)
-    result = results["items"][1]["image"]["contextLink"]
+    if results.keys[0] == "error"
+      result = "https://www.youtube.com/watch?v=_FLhO7ZnKHs"
+    else
+      result = results["items"][1]["image"]["contextLink"]
+    end
   end
 
 end
