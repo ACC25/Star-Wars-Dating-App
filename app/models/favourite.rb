@@ -18,10 +18,19 @@ class Favourite < ActiveRecord::Base
   def self.find_most_recent(user)
     if check_account_history?(user)
       recent_search = Favourite.where(user_id: user.id).order(:created_at).last
-      person = Peoples.find(recent_search.peoples_id)
+      valid = recent_search_verification(recent_search, user)
+      person = Peoples.find(valid.peoples_id)
       person_valid?(person)
     else
       "No recent searches"
+    end
+  end
+
+  def self.recent_search_verification(recent_search, user)
+    if recent_search.peoples_id == nil
+      Favourite.create!(user_id: user.id, peoples_id: 34)
+    else
+      recent_search
     end
   end
 
@@ -50,7 +59,11 @@ class Favourite < ActiveRecord::Base
       options = {}
       options[:searchType] = "image"
       results = GoogleCustomSearchApi.search(person, options)
-      result = results["items"][0]["link"]
+      if results.keys[0] == "error"
+        result = "http://i.imgur.com/0lTGZqH.png"
+      else
+        result = results["items"][0]["link"]
+      end
     end
   end
 
