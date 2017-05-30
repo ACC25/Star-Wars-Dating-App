@@ -18,9 +18,9 @@ class Admin::OverviewController < ApplicationController
   def most_active
     top = Favourite.group(:peoples_id).having("count(*) > 1").count
     if top == {}
-      "Need more information"
+      User.find(1)
     else
-      # User.find(top.max_by{|k,v| v}[1])
+      User.find(top.max_by{|k,v| v}[1])
     end
   end
 
