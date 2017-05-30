@@ -70,7 +70,11 @@ class Favourite < ActiveRecord::Base
   def self.find_wiki_links(person)
     options = {}
     results = GoogleCustomSearchApi.search(person, options)
-    result = results["items"][0]["link"]
+    if results.keys[0] == "error"
+      result = "https://www.youtube.com/watch?v=_FLhO7ZnKHs"
+    else
+      result = results["items"][0]["link"]
+    end
   end
 
   private
@@ -126,7 +130,7 @@ class Favourite < ActiveRecord::Base
     elsif climate == "Blue Sky"
       output = Planet.where('climate LIKE ? OR climate LIKE ?', 'temperate', 'tropical, temperate')
     elsif climate == "Anything"
-      output = Planet.where('climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ?', 'temperate', 'arid', 'tropical', 'frozen')
+      output = Planet.where('climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ? OR climate LIKE ?', 'temperate', 'arid', 'tropical', 'frozen', 'temperate, arid, subartic', 'arid, temperate, tropical', 'arid, rocky, windy')
     end
     output
   end
