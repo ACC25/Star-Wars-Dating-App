@@ -9,7 +9,7 @@ Users can select a set of gender, species and environmental criteria, and the ap
 
 The live version can be found here: https://shielded-tundra-55756.herokuapp.com/
 
-# More Pictures
+### More Pictures
 
 ![alt text](https://github.com/ACC25/Star-Wars-Dating-App/blob/master/result_screenshot.jpeg "results")
 ![alt text](https://github.com/ACC25/Star-Wars-Dating-App/blob/master/control_panel_screenshot.jpeg "control_panel")
